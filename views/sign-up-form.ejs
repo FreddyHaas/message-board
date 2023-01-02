@@ -1,0 +1,17 @@
+<%- include('./components/header') -%>
+<%- include('./components/navbar') -%>
+    <div class="content">
+        <h1>Sign Up</h1>
+        <p>Already registered
+            <a href="/login">Login</a>
+        </p>
+        <form action="" method="POST" class="form-container">
+            <input name="firstName" class="form-input" placeholder="First name" type="text">
+            <input name="lastName" class="form-input" placeholder="Last name" type="text">
+            <input name="password" class="form-input" placeholder="Your password" type="password">
+            <input name="confirmPassword" class="form-input" placeholder="Confirm password" type="password">
+            <input type="submit" class="form-button" value="Sign Up">
+        </form>
+    </div>
+</div>
+<%- include('./components/footer') -%>

@@ -20,10 +20,16 @@ router.post('/message', message_controller.message_create_post);
 // USER ROUTES
 
 // GET request to login 
-router.get('/login', user_controller.user_login_get);
+router.get('/login', user_controller.user_logout_get);
 
 // POST request to login
-router.post('/login', user_controller.user_login_post);
+router.post('/login', user_controller.user_logout_post);
+
+// GET request to logout 
+router.get('/logout', user_controller.user_login_get);
+
+// POST request to logout
+router.post('/logout', user_controller.user_login_post);
 
 // GET request to sign up
 router.get('/signup', user_controller.user_signup_get);

@@ -12,5 +12,5 @@ exports.message_create_post = (req, res) => {
 
 // View messages
 exports.message_view = (req, res) => {
-    res.send('NOT IMPLEMENTED: Message view');
+    res.render('index', {});
 };
