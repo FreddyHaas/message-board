@@ -58,10 +58,13 @@ exports.user_signup_post = [
             }
 
             // Handle errors including existing username
-            if(!errors.isEmpty() || found_username !== undefined) {
+            if(!errors.isEmpty() || found_username !== null) {
                 user.confirmPassword = req.body.confirmPassword;
 
-                let existingUser = found_username ? 'true' : 'false';
+                let existingUser = (found_username == null) ? 'false' : 'true';
+
+                console.log(existingUser);
+                console.log(found_username);
                 
                 let errorMessages = {
                     'firstName': undefined,
@@ -94,7 +97,7 @@ exports.user_signup_post = [
                         return next(err);
                     }
 
-                    res.send('Success');
+                    res.redirect('/');
                 });
             }
         })
