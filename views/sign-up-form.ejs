@@ -6,11 +6,18 @@
             <a href="/login">Login</a>
         </p>
         <form action="" method="POST" class="form-container">
-            <input name="firstName" class="form-input" placeholder="First name" type="text">
-            <input name="lastName" class="form-input" placeholder="Last name" type="text">
-            <input name="password" class="form-input" placeholder="Your password" type="password">
-            <input name="confirmPassword" class="form-input" placeholder="Confirm password" type="password">
-            <input type="submit" class="form-button" value="Sign Up">
+            <input name="firstName" class="form-input" placeholder="First name" type="text" value=<%= (typeof user !== 'undefined') ? user.first_name : '' %>>
+            <p id="error-message"> <%- (typeof errors !== 'undefined') ? errors.firstName : '' %></p>
+            <input name="lastName" class="form-input" placeholder="Last name" type="text" value=<%= (typeof user !== 'undefined') ? user.last_name : '' %>>
+            <p id="error-message"> <%- (typeof errors !== 'undefined') ? errors.lastName : '' %></p>
+            <input name="username" class="form-input" placeholder="Your email" type="email" value=<%= (typeof user !== 'undefined') ? user.username : '' %>>
+            <p id="error-message"> <%- (typeof errors !== 'undefined') ? errors.username : '' %></p>
+            <p id="error-message"> <%- existingUser ? 'Email address already in use' : '' %></p>
+            <input name="password" class="form-input" placeholder="Your password" type="password" value=<%= (typeof user !== 'undefined') ? user.password : '' %>>
+            <p id="error-message"> <%- (typeof errors !== 'undefined') ? errors.password : '' %></p>
+            <input name="confirmPassword" class="form-input" placeholder="Confirm password" type="password" value=<%= (typeof user !== 'undefined') ? user.confirmPassword : '' %>>
+            <p id="error-message"> <%- (typeof errors !== 'undefined') ? errors.confirmPassword : '' %></p>
+            <button>Sign Up</button>
         </form>
     </div>
 </div>

@@ -22,7 +22,7 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
 }
 
@@ -96,7 +96,7 @@ h1 {
   font-weight: 200;
 }
 
-.form-button {
+button {
   color: white;
   background-color: var(--dark-purple);
   border: none;
@@ -104,8 +104,12 @@ h1 {
   font-weight: 500;
   padding: 5px 20px;
   border-radius: 5px;
-  max-width: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#error-message {
+  margin-top: -10px;
+  color: red;
 }

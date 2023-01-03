@@ -11,7 +11,6 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-require('bcryptjs');
 require('dotenv').config();
 
 // Connection to database
