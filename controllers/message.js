@@ -12,5 +12,5 @@ exports.message_create_post = (req, res) => {
 
 // View messages
 exports.message_view = (req, res) => {
-    res.render('index', {});
+    res.render('board', { user: req.user });
 };

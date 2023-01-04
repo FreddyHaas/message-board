@@ -1,25 +1,20 @@
-const User = require('../models/user');
 const bcrypt = require('bcryptjs');
-const { check, body, validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator');
+var User = require('../models/user');
 
 // GET - Log in
 exports.user_login_get = (req, res) => {
-    res.send('NOT IMPLEMENTED: User log in - GET');
-};
-
-// POST - Log in
-exports.user_login_post = (req, res) => {
-    res.send('NOT IMPLEMENTED: User log in - POST');
+    res.render('login-form', {});
 };
 
 // GET - Log out
-exports.user_logout_get = (req, res) => {
-    res.send('NOT IMPLEMENTED: User log out - GET');
-};
-
-// POST - Log out
-exports.user_logout_post = (req, res) => {
-    res.send('NOT IMPLEMENTED: User log out - POST');
+exports.user_logout_get = (req, res, next) => {
+    req.logout(function(err) {
+        if(err) {
+            return next(err);
+        }
+        res.redirect("/");
+    });
 };
 
 // GET - Sign up
@@ -85,20 +80,23 @@ exports.user_signup_post = [
                 })
             return;
             } else {
-                // Encrypt password
+                // Encrypt password 
                 bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
                     if(err) {
                         return next(err);
                     }
-                });
-                // Save login information
-                user.save(function(err) {
-                    if (err) {
-                        return next(err);
-                    }
-
-                    res.redirect('/');
-                });
+                    user.password = hashedPassword;
+                    // Save login information
+                    user.save(function(err) {
+                        if (err) {
+                            return next(err);
+                        }
+                        req.login(user, function(err) {
+                            if (err) { return next(err) };
+                            res.redirect('/');
+                        })
+                    });
+                });                
             }
         })
     },

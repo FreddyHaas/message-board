@@ -6,12 +6,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const mongoose = require("mongoose");
-
-const session = require('express-session');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-
 require('dotenv').config();
+
+var session = require('express-session');
+var passport = require('passport');
+
+var flash = require('connect-flash');
 
 // Connection to database
 const mongoDB = process.env.DB_DATABASE;
@@ -27,15 +27,26 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
+app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash());
+
+app.use(function(req, res, next) {
+  res.locals.messages = req.flash();
+  next();
+});
 
 app.use('/', indexRouter);
 

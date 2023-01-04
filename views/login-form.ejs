@@ -1,0 +1,15 @@
+<%- include('./components/header') -%>
+<%- include('./components/navbar') -%>
+    <div class="content">
+        <h1>Please login</h1>
+        <form action="" method="POST" class="form-container">
+            <input name="username" placeholder="Username" type="text" class="form-input"/>
+            <input name="password" placeholder="Password" type="password" class="form-input"/>
+            <% if(messages.error) {%> 
+                <p id="error-message"><%= messages.error %></p>
+            <% } %>
+            <button>Login</button>
+        </form>
+    </div>
+</div>
+<%- include('./components/footer') -%>
