@@ -2,8 +2,16 @@
     <div id="logo">
         <a href="/">BlackBoard</a>
     </div>
+    <% if(currentUser) { %>
+        <div class="navbar-items">
+            <a href="/message">Add message</a>
+            <a href="/moderator">Become moderator</a>
+            <a href="/logout">Logout</a>
+        </div>
+    <% } else {%>
     <div class="navbar-items">
         <a href="/login">Login</a>
         <a href="/signup">Sign Up</a>
     </div>
+    <% } %>
 </div>
