@@ -57,9 +57,6 @@ exports.user_signup_post = [
                 user.confirmPassword = req.body.confirmPassword;
 
                 let existingUser = (found_username == null) ? 'false' : 'true';
-
-                console.log(existingUser);
-                console.log(found_username);
                 
                 let errorMessages = {
                     'firstName': undefined,
@@ -72,7 +69,6 @@ exports.user_signup_post = [
                     errorMessages[errors.array()[i].param] = errors.array()[i].msg;
                 }
 
-                console.log(errorMessages);
                 res.render('sign-up-form', {
                     user: user,
                     errors: errorMessages,
