@@ -7,6 +7,10 @@
             <a href="/message">Add message</a>
             <a href="/admin">Admin</a>
             <a href="/logout">Logout</a>
+            <div class="account-info">
+                <span class="material-symbols-outlined">account_circle</span>
+                <p id="profile-info"><%= currentUser.first_name%> <%= currentUser.last_name%></p>
+            </div>
         </div>
     <% } else {%>
     <div class="navbar-items">
