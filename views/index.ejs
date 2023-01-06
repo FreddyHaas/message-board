@@ -1,5 +1,10 @@
 <%- include('./components/header') %>
 <%- include('./components/navbar') %>
+<% if (!currentUser) { %>
+    <p id="call-for-action"><a href=/login>Login</a> or <a href=/signup>Signup</a> to post a message</p>
+<% } else { %>
+    <p id="call-for-action"><a href=/message>Add a new message</a></p>
+<% } %>   
     <div class="message-container">
         <% for(let i = 0; i < list_messages.length; i++) {%>
             <div class="message">
@@ -7,7 +12,7 @@
                 <p><%= list_messages[i].text %></p>
                 <div class="message-info">
                     <p><%= list_messages[i].date_posted %></p>
-                    <p>User</p>
+                    <p><%= list_messages[i].user.first_name %> <%= list_messages[i].user.last_name %></p>
                 </div>
             </div>
         <%}%> 

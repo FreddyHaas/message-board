@@ -11,8 +11,8 @@ exports.message_create_get = (req, res) => {
 
 // POST create message
 exports.message_create_post = [
-    body(['title'], 'Title must be specified').isLength({ min: 1 }).escape(),
-    body(['text'], 'Text must be specified').isLength({ min: 1 }).escape(),
+    body(['title'], 'Title must be specified').isLength({ min: 1 }),
+    body(['text'], 'Text must be specified').isLength({ min: 1 }),
 
     (req, res, next) => {
         const errors = validationResult(req);
@@ -51,6 +51,7 @@ exports.message_create_post = [
 exports.message_view = (req, res) => {
     Message.find({})
     .sort({ updatedAt: 1 })
+    .populate("user")
     .exec(function (err, list_messages) {
         if (err) {
             return next(err);

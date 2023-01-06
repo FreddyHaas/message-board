@@ -142,7 +142,12 @@ button {
 .message h2 {
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.message p {
+  font-weight: 300;
+  line-height: 1.3;
 }
 
 .message-info {
@@ -151,7 +156,11 @@ button {
   font-size: 14px;
   font-weight: 300;
   border-top: solid 0.5px var(--dark-grey);
-  margin-top: 15px;
-  padding-top: 15px;
+  margin-top: 25px;
+  padding-top: 25px;
   color: var(--dark-grey)
+}
+
+#call-for-action, #call-for-action a {
+  color: white;
 }
