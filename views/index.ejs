@@ -9,7 +9,7 @@
                 <% for(let i = 0; i < list_messages.length; i++) {%>
                 <div class="message">
                     <% if(currentUser && currentUser.admin) { %>
-                        <form method='POST' action='/message/delete'>
+                        <form id="message-delete-form" method='POST' action='/message/delete'>
                             <input type="hidden", name="messageid", required="true", value="<%= list_messages[i].id %>" />
                             <button id="message-delete-button"><span class="material-symbols-outlined">delete</span></button>
                         </form>
