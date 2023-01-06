@@ -1,0 +1,16 @@
+<%- include('./components/header') -%>
+<%- include('./components/navbar') -%>
+    <div class="content">
+        <h1>Admin</h1>
+        <% if(currentUser.admin) { %>
+            <p id="admin-message">You are already an admin an can delete messages.</p>
+        <% } else { %>
+            <p>Admins are authorized to delete messages. In order to become an admin pass in the key below. <span id="admin-key">The admin-key can be found: <a href="https://github.com/FreddyHaas/message-board" target="_blank">here</a>.</span></p>
+            <form action="" method="POST" class="form-container">
+                <input name="admin" placeholder="Insert admin-key" type="password" class="form-input"/>
+                <p id="error-message"> <%- (error) ? error : '' %></p>
+                <button>Become admin</button>
+            </form>
+        <% } %>
+    </div>
+<%- include('./components/footer') -%>

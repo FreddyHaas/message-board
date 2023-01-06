@@ -73,10 +73,10 @@ router.get('/signup', user_controller.user_signup_get);
 // POST request to sign up 
 router.post('/signup', user_controller.user_signup_post);
 
-// GET request to become moderator
-router.get('/moderator', user_controller.user_become_moderator_get);
+// GET request to become admin
+router.get('/admin', user_controller.user_admin_get);
 
-// POST request to become moderator
-router.post('/moderator', user_controller.user_become_moderator_post);
+// POST request to become admin
+router.post('/admin', user_controller.user_admin_post);
 
 module.exports = router;

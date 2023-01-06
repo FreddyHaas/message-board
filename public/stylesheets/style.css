@@ -186,3 +186,13 @@ button {
   'GRAD' 0,
   'opsz' 48
 }
+
+/* Admin section */
+#admin-key {
+  font-weight: 700;
+}
+
+#admin-message {
+  font-size: 24px;
+  margin-top: 15px;
+}

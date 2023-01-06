@@ -28,8 +28,8 @@ exports.user_signup_get = (req, res) => {
 
 // POST - Sign up
 exports.user_signup_post = [
-    body(['firstName'], 'First name must be specified').trim().isLength({ min: 1 }).escape(),
-    body(['lastName'], 'Last name must be specified').trim().isLength({ min: 1 }).escape(),
+    body(['firstName'], 'First name must be specified').isLength({ min: 1 }).escape(),
+    body(['lastName'], 'Last name must be specified').isLength({ min: 1 }).escape(),
     body(['username'], 'Valid email address must be provided').trim().isEmail().escape(),
     body(['password'], 'Password must be provided').trim().isLength({ min: 1}).escape(),
     body(['confirmPassword'], 'Passwords do not match')
@@ -99,11 +99,25 @@ exports.user_signup_post = [
 ];
 
 // GET - Become moderator
-exports.user_become_moderator_get = (req, res) => {
-    res.send('NOT IMPLEMENTED: User become moderator - GET');
-};
+exports.user_admin_get = (req, res) => {
+    res.render('admin', {error: undefined});
+}
 
 // POST - Become moderator
-exports.user_become_moderator_post = (req, res) => {
-    res.send('NOT IMPLEMENTED: User become moderator - POST');
-};
+exports.user_admin_post = [ 
+    body(['admin'], '').escape(),
+    (req, res, next) => {
+        let id = req.session.passport.user;
+        if (req.body.admin === 'admin123') {
+            User.findByIdAndUpdate(id, { admin: true }, function(err, result) {
+                if(err) {
+                    return next (err);
+                } 
+                res.redirect('/');
+                return;
+            });
+        } else {
+            res.render('admin', {error: 'Invalid key'});
+        };
+    }
+]
