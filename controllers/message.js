@@ -20,6 +20,7 @@ exports.message_create_post = [
         var message = new Message({
             title: req.body.title,
             text: req.body.text,
+            user: req.session.passport.user,
         });
 
         if(!errors.isEmpty()) {
@@ -54,7 +55,6 @@ exports.message_view = (req, res) => {
         if (err) {
             return next(err);
         }
-        console.log(list_messages);
         res.render("index", {
             list_messages: list_messages,
         });

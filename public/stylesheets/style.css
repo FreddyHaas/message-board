@@ -46,8 +46,8 @@ h1 {
   font-weight: 900;
 }
 
-#logo a {
-  color: var(--dark-blue);
+#logo a:hover {
+  color: var(--dark-purple);
 }
 
 .navbar a {
