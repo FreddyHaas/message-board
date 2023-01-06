@@ -48,5 +48,15 @@ exports.message_create_post = [
 ]
 // View messages
 exports.message_view = (req, res) => {
-    res.render('board', { user: req.user });
+    Message.find({})
+    .sort({ updatedAt: 1 })
+    .exec(function (err, list_messages) {
+        if (err) {
+            return next(err);
+        }
+        console.log(list_messages);
+        res.render("index", {
+            list_messages: list_messages,
+        });
+    })
 };

@@ -123,3 +123,35 @@ button {
 #form-message-input {
   height: 200px;
 }
+
+/* Display messages */
+.message-container {
+  width: 100%;
+  display: grid;
+  gap: 30px;
+  padding: 0px 30px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.message {
+  background-color: white;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.message h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.message-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 300;
+  border-top: solid 0.5px var(--dark-grey);
+  margin-top: 15px;
+  padding-top: 15px;
+  color: var(--dark-grey)
+}

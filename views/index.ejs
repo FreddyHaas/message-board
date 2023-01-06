@@ -1,0 +1,15 @@
+<%- include('./components/header') %>
+<%- include('./components/navbar') %>
+    <div class="message-container">
+        <% for(let i = 0; i < list_messages.length; i++) {%>
+            <div class="message">
+                <h2><%= list_messages[i].title %></h2>
+                <p><%= list_messages[i].text %></p>
+                <div class="message-info">
+                    <p><%= list_messages[i].date_posted %></p>
+                    <p>User</p>
+                </div>
+            </div>
+        <%}%> 
+    </div>
+<%- include('./components/footer') %>
