@@ -8,11 +8,19 @@
     <div class="message-container">
         <% for(let i = 0; i < list_messages.length; i++) {%>
             <div class="message">
-                <h2><%= list_messages[i].title %></h2>
-                <p><%= list_messages[i].text %></p>
+                <div class="message-content">
+                    <h2><%= list_messages[i].title %></h2>
+                    <p><%= list_messages[i].text %></p>
+                </div>
                 <div class="message-info">
-                    <p><%= list_messages[i].date_posted %></p>
-                    <p><%= list_messages[i].user.first_name %> <%= list_messages[i].user.last_name %></p>
+                    <div class="message-date">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <p><%= list_messages[i].date_posted %></p>
+                    </div>
+                    <div class="message-author">
+                        <span class="material-symbols-outlined">person</span>
+                        <p><%= list_messages[i].user.first_name %> <%= list_messages[i].user.last_name %></p>
+                    </div>
                 </div>
             </div>
         <%}%> 
