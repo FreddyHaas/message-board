@@ -118,3 +118,8 @@ button {
   margin-top: -10px;
   color: red;
 }
+
+/* Create message */
+#form-message-input {
+  height: 200px;
+}

@@ -1,0 +1,11 @@
+<%- include('./components/header') -%>
+<%- include('./components/navbar') -%>
+    <div class="content">
+        <h1>New message</h1>
+        <form action="" method="POST" class="form-container">
+            <input name="title" placeholder="Title" type="text" class="form-input" maxlength="100">
+            <textarea name="text" type="text" class="form-input" maxlength="500" id="form-message-input" placeholder="Your message" maxlength="500"></textarea>
+            <button>Add</button>
+        </form>
+    </div>
+<%- include ('./components/footer') -%>

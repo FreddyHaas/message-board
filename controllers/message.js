@@ -2,7 +2,7 @@ const Message = require('../models/message');
 
 // GET create message
 exports.message_create_get = (req, res) => {
-    res.send('NOT IMPLEMENTED: Message create GET');
+    res.render('message-form', {});
 };
 
 // POST create message
