@@ -9,6 +9,7 @@
 :root {
   --light-grey: #F0F2F5;
   --dark-purple: #6B11B1;
+  --light-purple: #7e3ab1;
   --dark-grey: #303846; 
   --light-grey: #9f9a9a;
 }
@@ -112,6 +113,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 #error-message {
@@ -141,6 +143,7 @@ button {
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0px 0px 5px 2px var(--light-grey);
+  position: relative;
 }
 
 .message h2 {
@@ -187,6 +190,14 @@ button {
   'opsz' 48
 }
 
+#message-delete-button {
+  border-radius: 100%;
+  padding: 4px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
 /* Admin section */
 #admin-key {
   font-weight: 700;
@@ -195,4 +206,9 @@ button {
 #admin-message {
   font-size: 24px;
   margin-top: 15px;
+}
+
+/* Hovering effects */
+button:hover, .navbar-items a:first-child:hover {
+  background: var(--light-purple);
 }

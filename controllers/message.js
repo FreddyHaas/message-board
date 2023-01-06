@@ -47,8 +47,20 @@ exports.message_create_post = [
         }
     }
 ]
+
+// POST delete message
+exports.message_delete_post = (req, res, next) => {
+    Message.findByIdAndRemove(req.body.messageid, err => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect('/');
+    });
+}
+
+
 // View messages
-exports.message_view = (req, res) => {
+exports.message_view = (req, res, next) => {
     Message.find({})
     .sort({ updatedAt: 1 })
     .populate("user")

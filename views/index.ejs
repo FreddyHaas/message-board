@@ -1,13 +1,19 @@
 <%- include('./components/header') %>
 <%- include('./components/navbar') %>
 <% if (!currentUser) { %>
-    <p id="call-for-action"><a href=/login>Login</a> or <a href=/signup>Signup</a> to post a message</p>
+    <p id="call-for-action"><a href=/login>Login</a> or <a href=/signup>Sign Up</a> to post a message</p>
 <% } else { %>
     <p id="call-for-action"><a href=/message>Add a new message</a></p>
-<% } %>   
+<% } %>
     <div class="message-container">
-        <% for(let i = 0; i < list_messages.length; i++) {%>
-            <div class="message">
+                <% for(let i = 0; i < list_messages.length; i++) {%>
+                <div class="message">
+                    <% if(currentUser && currentUser.admin) { %>
+                        <form method='POST' action='/message/delete'>
+                            <input type="hidden", name="messageid", required="true", value="<%= list_messages[i].id %>" />
+                            <button id="message-delete-button"><span class="material-symbols-outlined">delete</span></button>
+                        </form>
+                    <% } %>
                 <div class="message-content">
                     <h2><%= list_messages[i].title %></h2>
                     <p><%= list_messages[i].text %></p>

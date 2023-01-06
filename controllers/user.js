@@ -28,8 +28,8 @@ exports.user_signup_get = (req, res) => {
 
 // POST - Sign up
 exports.user_signup_post = [
-    body(['firstName'], 'First name must be specified').isLength({ min: 1 }).escape(),
-    body(['lastName'], 'Last name must be specified').isLength({ min: 1 }).escape(),
+    body(['firstName'], 'First name must be specified').trim().isLength({ min: 1 }).escape(),
+    body(['lastName'], 'Last name must be specified').trim().isLength({ min: 1 }).escape(),
     body(['username'], 'Valid email address must be provided').trim().isEmail().escape(),
     body(['password'], 'Password must be provided').trim().isLength({ min: 1}).escape(),
     body(['confirmPassword'], 'Passwords do not match')

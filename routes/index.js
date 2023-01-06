@@ -51,6 +51,9 @@ router.get('/message', message_controller.message_create_get);
 // POST request to create a new message
 router.post('/message', message_controller.message_create_post);
 
+// POST request to delete message
+router.post('/message/delete', message_controller.message_delete_post);
+
 // USER ROUTES
 
 // GET request to login 
