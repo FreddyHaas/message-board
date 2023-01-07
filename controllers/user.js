@@ -46,6 +46,8 @@ exports.user_signup_post = [
             password: req.body.password,
         });
 
+        console.log(req.body.lastName);
+
         // Check if username already exists 
         User.findOne({ username: req.body.username }).exec(function (err, found_username) {
             if(err) {
@@ -108,7 +110,7 @@ exports.user_admin_post = [
     body(['admin'], '').escape(),
     (req, res, next) => {
         let id = req.session.passport.user;
-        if (req.body.admin === 'admin123') {
+        if (req.body.admin === process.env.ADMIN_PASSWORD) {
             User.findByIdAndUpdate(id, { admin: true }, function(err, result) {
                 if(err) {
                     return next (err);

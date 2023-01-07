@@ -6,9 +6,9 @@
             <a href="/login">Login</a>
         </p>
         <form action="" method="POST" class="form-container">
-            <input name="firstName" class="form-input" placeholder="First name" type="text" value=<%= (typeof user !== 'undefined') ? user.first_name : '' %>>
+            <input name="firstName" class="form-input" placeholder="First name" type="text" value="<%= (typeof user !== 'undefined') ? user.first_name : '' %>">
             <p id="error-message"> <%- (typeof errors !== 'undefined') ? errors.firstName : '' %></p>
-            <input name="lastName" class="form-input" placeholder="Last name" type="text" value=<%= (typeof user !== 'undefined') ? user.last_name : '' %>>
+            <input name="lastName" class="form-input" placeholder="Last name" type="text" value="<%= (typeof user !== 'undefined') ? user.last_name : '' %>">
             <p id="error-message"> <%- (typeof errors !== 'undefined') ? errors.lastName : '' %></p>
             <input name="username" class="form-input" placeholder="Your email" type="email" value=<%= (typeof user !== 'undefined') ? user.username : '' %>>
             <p id="error-message"> <%- (typeof errors !== 'undefined') ? errors.username : '' %></p>

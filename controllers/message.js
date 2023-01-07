@@ -11,11 +11,17 @@ exports.message_create_get = (req, res) => {
 
 // POST create message
 exports.message_create_post = [
-    body(['title'], 'Title must be specified').isLength({ min: 1 }),
-    body(['text'], 'Text must be specified').isLength({ min: 1 }),
+    body(['title'], 'Title must be specified').isLength({ min: 1 }).escape(),
+    body(['text'], 'Text must be specified').isLength({ min: 1 }).escape(),
 
     (req, res, next) => {
         const errors = validationResult(req);
+
+        // Check if user is logged in, otherwise return to login page
+        if (req.session.passport?.user == undefined) {
+            res.redirect('/login');
+            return;
+        };
 
         var message = new Message({
             title: req.body.title,

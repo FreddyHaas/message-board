@@ -3,9 +3,9 @@
     <div class="content">
         <h1>New message</h1>
         <form action="" method="POST" class="form-container">
-            <input name="title" placeholder="Title" type="text" class="form-input" maxlength="100">
+            <input name="title" placeholder="Title" type="text" class="form-input" maxlength="100" value="<%= (typeof message !== 'undefined') ? message.title : '' %>">
             <p id="error-message"> <%- (typeof errors !== 'undefined') ? errors.title : '' %></p>
-            <textarea name="text" type="text" class="form-input" maxlength="500" id="form-message-input" placeholder="Your message" maxlength="500"></textarea>
+            <textarea name="text" type="text" class="form-input" maxlength="500" id="form-message-input" placeholder="Your message" maxlength="500"><%= (typeof message !== 'undefined') ? message.text : '' %></textarea>
             <p id="error-message"> <%- (typeof errors !== 'undefined') ? errors.text : '' %></p>
             <button>Add</button>
         </form>
