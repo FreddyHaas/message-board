@@ -1,6 +1,6 @@
 # Message board
 
-A digital message board (in german: ["Schwarzes Brett"](https://de.wikipedia.org/wiki/Schwarzes_Brett#:~:text=Der%20englische%20Begriff%20f%C3%BCr%20Schwarzes,der%20Geschichte%20des%20fr%C3%BChen%20Internets.))that allows user to post public messages.
+A digital message board (in german: ["Schwarzes Brett"](https://de.wikipedia.org/wiki/Schwarzes_Brett#:~:text=Der%20englische%20Begriff%20f%C3%BCr%20Schwarzes,der%20Geschichte%20des%20fr%C3%BChen%20Internets.)) that allows user to post public messages.
 
 Key features:
 -   Authenticate users through login (including password encryption)
@@ -18,4 +18,4 @@ Key features:
 
 ## Password for admin section
 
-Password for admin-section is: ###admin123
+Password for admin-section is: admin123
