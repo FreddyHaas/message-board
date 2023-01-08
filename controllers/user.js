@@ -58,8 +58,6 @@ exports.user_signup_post = [
             password: req.body.password,
         })
 
-        console.log(req.body.lastName)
-
         // Check if username already exists
         User.findOne({ username: req.body.username }).exec(
             (err, found_username) => {

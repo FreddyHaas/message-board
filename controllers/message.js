@@ -66,7 +66,7 @@ exports.message_delete_post = (req, res, next) => {
 // View messages
 exports.message_view = (req, res, next) => {
     Message.find({})
-        .sort({ updatedAt: 1 })
+        .sort({ updatedAt: -1 })
         .populate('user')
         .exec((err, list_messages) => {
             if (err) {

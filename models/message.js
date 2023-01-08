@@ -14,6 +14,7 @@ const MessageSchema = new Schema(
     }
 )
 
+// Format timestamps
 MessageSchema.virtual('date_posted').get(function () {
     return DateTime.fromJSDate(this.createdAt).toFormat('dd LLL yy')
 })
