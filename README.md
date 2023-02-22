@@ -10,7 +10,7 @@ Key features:
 [Live Demo](https://blackboard-jxfw.onrender.com/)
 
 ## Built with
-- [NodeJs](https://nodejs.org/en/)
+- [NodeJS](https://nodejs.org/en/)
 - [Express](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [EJS](https://ejs.co/)
